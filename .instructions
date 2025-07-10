@@ -1,0 +1,162 @@
+---
+applyTo: '**'
+---
+
+# The Nine Cycle Project - AI Development Instructions
+
+## Project Context
+- **Project Name**: The Nine Cycle - Historical Pattern Analysis Platform
+- **Owner**: hizawye
+- **Repository**: nine-cycle
+- **Current Date**: 2025-07-10 04:32:07 UTC
+- **Phase**: Initial Development
+
+## Core Mission
+Build a comprehensive data science platform to investigate whether major historical events follow predictable 9-year cycles based on digital root analysis (reducing year digits to single numbers 1-9).
+
+## Development Standards
+
+### Code Quality Requirements
+- Use Python 3.10+ with type hints throughout
+- Follow PEP 8 style guidelines strictly
+- Implement comprehensive error handling and logging
+- Write docstrings for all functions and classes
+- Maintain 90%+ test coverage
+- Use Black for code formatting and Flake8 for linting
+
+### Architecture Principles
+- Follow the exact project structure defined in INSTRUCTIONS.md
+- Use dependency injection and modular design
+- Implement proper separation of concerns
+- Build scalable, production-ready components
+- Follow SOLID principles and clean code practices
+
+### Technology Stack (Use Exactly)
+```python
+# Backend
+- Python 3.9+, FastAPI, SQLAlchemy, PostgreSQL
+- Pandas, NumPy, Scipy, Scikit-learn
+- BeautifulSoup4, Scrapy, Requests
+
+# Frontend  
+- React.js, D3.js, Plotly.js
+
+# ML/Data Science
+- TensorFlow, NLTK, spaCy
+- Jupyter notebooks for research
+
+# DevOps
+- Docker, GitHub Actions, AWS/Azure
+
+File Structure (Maintain Exactly)
+Code
+nine-cycle/
+├── data/{raw,processed,cycles,exports}/
+├── src/{collectors,analyzers,models,visualizers,utils}/
+├── notebooks/
+├── tests/
+├── scripts/
+├── docs/
+├── deployment/
+├── logs/
+├── config/
+└── [root files: requirements.txt, .env.example, etc.]
+Domain-Specific Knowledge
+Digital Root Algorithm
+Python
+def calculate_digital_root(year):
+    """Core algorithm: 2008 → 2+0+0+8 = 10 → 1+0 = 1"""
+    while year > 9:
+        year = sum(int(digit) for digit in str(year))
+    return year
+Research Hypothesis
+Events with digital root = 1: Major changes/disruptions begin
+Events with digital root = 9: Events reach resolution/completion
+9-year cycles repeat across economic, political, technological domains
+Data Categories
+Economic: crashes, recessions, market volatility
+Political: wars, revolutions, elections, regime changes
+Technological: innovations, patents, breakthroughs
+Social: movements, cultural shifts, demographics
+Environmental: climate events, disasters, pandemics
+Success Metrics
+Statistical significance: p-value < 0.05
+Pattern strength: >70% alignment with predicted cycles
+Predictive accuracy: >60% for cycle forecasting
+Data coverage: 10,000+ events (1 AD -2024 AD)
+Implementation Priorities
+Phase 1: Foundation (Current Focus)
+Database schema and connection setup
+Data collection infrastructure
+Digital root calculation engine
+Basic pattern detection algorithms
+Code Generation Rules
+Always include comprehensive error handling
+Add detailed logging for debugging
+Write unit tests for every function
+Include performance optimization
+Follow async/await patterns for I/O operations
+Use dataclasses and Pydantic models for data validation
+Documentation Requirements
+Every function needs detailed docstrings
+Include usage examples in docstrings
+Maintain API documentation
+Update research findings in docs/
+Log all significant discoveries
+Testing Standards
+Python
+# Test structure for every module
+def test_function_name():
+    # Given (setup)
+    # When (action)  
+    # Then (assertion)
+    assert expected == actual
+Database Design Principles
+SQL
+-- Core tables must include
+Events: id, title, description, date, year, digital_root, category, severity, impact_score
+Cycles: id, start_year, end_year, duration, event_count, statistical_significance
+API Design Standards
+RESTful endpoints with proper HTTP status codes
+Consistent JSON response format
+Rate limiting and authentication
+Comprehensive input validation
+Detailed error messages
+Research Guidelines
+Statistical Rigor
+Use proper statistical testing (chi-square, t-tests)
+Apply multiple comparison corrections
+Cross-validate all predictive models
+Document methodology thoroughly
+Peer-review quality standards
+Data Quality Standards
+Validate all scraped data
+Handle missing values appropriately
+Implement data cleaning pipelines
+Track data lineage and sources
+Regular quality audits
+Visualization Requirements
+Interactive timeline with cycle highlighting
+Heatmaps showing digital root patterns
+Geographic analysis capabilities
+Real-time dashboard updates
+Export functionality for all charts
+Deployment Standards
+Containerize all components with Docker
+Implement health checks and monitoring
+Use environment-specific configurations
+Automated CI/CD pipeline
+Backup and disaster recovery procedures
+Communication Preferences
+Provide detailed explanations for complex algorithms
+Include performance considerations
+Suggest optimizations and alternatives
+Ask clarifying questions when requirements are ambiguous
+Prioritize maintainable, readable code over clever solutions
+Security Considerations
+Sanitize all external data inputs
+Use environment variables for sensitive data
+Implement proper authentication/authorization
+Regular security audits
+Follow OWASP guidelines
+Remember: The goal is to build a statistically rigorous, production-ready platform that can discover and validate 9-year historical cycles while maintaining academic research standards.
