@@ -1,0 +1,24 @@
+# Core dependencies for Nine Cycle project
+# Install these first, then add optional dependencies as needed
+
+# Core Python packages
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+# Database
+psycopg2-binary>=2.9.0
+sqlalchemy>=1.4.0
+
+# Configuration
+pydantic>=1.10.0
+
+# Basic web framework
+fastapi>=0.100.0
+uvicorn>=0.22.0
+
+# Optional dependencies (install separately if needed):
+# pip install pandas numpy scipy scikit-learn matplotlib seaborn
+# pip install aiohttp loguru structlog
+# pip install plotly dash
+# pip install jupyter ipykernel
+# pip install pytest pytest-cov black flake8 mypy
