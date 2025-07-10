@@ -1,0 +1,267 @@
+# ==============================================================================
+# Nine Cycle Project - Professional Git Ignore Configuration
+# ==============================================================================
+
+# -----------------------------------------------------------------------------
+# Python
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# -----------------------------------------------------------------------------
+# Virtual Environments & Package Managers
+# -----------------------------------------------------------------------------
+nine_cycle_env/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+pyvenv.cfg
+poetry.lock
+Pipfile.lock
+
+# -----------------------------------------------------------------------------
+# Environment & Configuration
+# -----------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+.envrc
+local_settings.py
+config/local.py
+settings_local.py
+
+# -----------------------------------------------------------------------------
+# Development Tools & IDEs
+# -----------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.vim/
+.emacs.d/
+.atom/
+.sublime-*
+
+# -----------------------------------------------------------------------------
+# Jupyter Notebooks
+# -----------------------------------------------------------------------------
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+profile_default/
+ipython_config.py
+notebooks/.ipynb_checkpoints/
+
+# -----------------------------------------------------------------------------
+# Data & Analytics
+# -----------------------------------------------------------------------------
+data/raw/*
+data/processed/*
+data/cycles/*
+data/exports/*
+data/temp/*
+!data/.gitkeep
+!data/*/README.md
+!data/*/.gitkeep
+
+# ML Models & Training
+models/*
+!models/.gitkeep
+*.pkl
+*.joblib
+*.h5
+*.pb
+checkpoints/
+*.ckpt
+wandb/
+
+# -----------------------------------------------------------------------------
+# Logs & Monitoring
+# -----------------------------------------------------------------------------
+logs/*
+!logs/.gitkeep
+*.log
+*.log.*
+logfile
+.log
+
+# -----------------------------------------------------------------------------
+# Database
+# -----------------------------------------------------------------------------
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+db_backup/
+database_dumps/
+
+# -----------------------------------------------------------------------------
+# Docker & Containers
+# -----------------------------------------------------------------------------
+.dockerignore
+docker-compose.override.yml
+.docker/
+
+# -----------------------------------------------------------------------------
+# Cloud & Deployment
+# -----------------------------------------------------------------------------
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+terraform.tfvars
+terraform.tfvars.json
+
+# AWS
+.aws/
+.boto
+
+# Google Cloud
+.gcloud/
+gcloud-service-key.json
+
+# -----------------------------------------------------------------------------
+# Operating System
+# -----------------------------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# -----------------------------------------------------------------------------
+# Documentation
+# -----------------------------------------------------------------------------
+docs/_build/
+docs/build/
+site/
+mkdocs/
+
+# -----------------------------------------------------------------------------
+# Temporary & Cache Files
+# -----------------------------------------------------------------------------
+*.tmp
+*.temp
+*.cache
+tmp/
+temp/
+cache/
+.sass-cache/
+
+# -----------------------------------------------------------------------------
+# Security & Secrets
+# -----------------------------------------------------------------------------
+secrets/
+credentials/
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.der
+api_keys.txt
+.secrets/
+
+# -----------------------------------------------------------------------------
+# Backup & Archive Files
+# -----------------------------------------------------------------------------
+*.bak
+*.backup
+*.orig
+*.save
+*~
+*.tar.gz
+*.zip
+*.rar
+*.7z
+
+# -----------------------------------------------------------------------------
+# Project Specific
+# -----------------------------------------------------------------------------
+# Nine Cycle specific ignores
+debug_test.py
+test_output/
+performance_logs/
+data_validation_reports/
+cycle_analysis_temp/
+
+# Development artifacts
+scratch/
+playground/
+experiments/
