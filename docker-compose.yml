@@ -1,0 +1,71 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: nine_cycle_postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/sql:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    restart: unless-stopped
+
+  nine_cycle_app:
+    image: python:3.10-slim
+    container_name: nine_cycle_app
+    working_dir: /app
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      ENVIRONMENT: ${ENVIRONMENT}
+      LOG_LEVEL: ${LOG_LEVEL}
+      DEBUG: ${DEBUG}
+      FASTAPI_HOST: ${FASTAPI_HOST:-0.0.0.0}
+      FASTAPI_PORT: ${FASTAPI_PORT:-8000}
+    ports:
+      - "${FASTAPI_PORT:-8000}:8000"
+      - "${DASH_PORT:-8050}:8050"
+    volumes:
+      - ./src:/app/src
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./models:/app/models
+      - ./requirements.txt:/app/requirements.txt
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    command: >
+      sh -c "pip install --no-cache-dir -r requirements.txt && 
+             python -m uvicorn src.api:app --host ${FASTAPI_HOST:-0.0.0.0} --port ${FASTAPI_PORT:-8000}"
+
+  redis:
+    image: redis:7-alpine
+    container_name: nine_cycle_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+  jupyter:
+    image: jupyter/base-notebook
+    container_name: nine_cycle_jupyter
+    ports:
+      - "${JUPYTER_PORT:-8888}:8888"
+    environment:
+      - JUPYTER_TOKEN=${JUPYTER_TOKEN}
+    volumes:
+      - ./notebooks:/home/jovyan/work
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
